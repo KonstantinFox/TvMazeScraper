@@ -24,6 +24,7 @@ namespace DataAccess.Repositories
             {
                 return null;
             }
+            
             return await _context.Shows
                 .OrderBy(e => e.Id)
                 .Skip(page * size)
@@ -39,6 +40,7 @@ namespace DataAccess.Repositories
             {
                 return null;
             }
+            
             return await _context.Shows
                 .Include(s => s.ShowCasts)
                 .ThenInclude(sc => sc.Person)
